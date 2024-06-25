@@ -50,7 +50,7 @@ array-sort/
 * *Time complexity*: O(n log n)
 * *Space complexity*: O(n)
 
-## Quick Sort [PENDING]
+## Quick Sort 
 
 * *Description*: Pick an element from the array (the pivot), partition the remaining elements into those greater than and less than this pivot, and recursively sort the partitions. There are many variants of the basic scheme above: to select the pivot, to partition the array, to stop the recursion or switch to another algorithm for small partitions, etc. 
 * *Time complexity*:  O(n log n); O(n^2^) [Worst]
