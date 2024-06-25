@@ -1,6 +1,7 @@
 package com.arraysort;
 
 import java.util.Arrays; 
+import java.util.Random; 
 class SortAlgorithms{
     public static void bubbleSort(int[] array){
         int size = array.length, tmp;
@@ -79,5 +80,37 @@ class SortAlgorithms{
            j++;
            k++;
        }
+   }
+
+   public static void quickSort(int[] array){
+       quickSortRec(array, 0, array.length - 1);
+   }
+   
+   private static void quickSortRec(int[] array, int start, int end){
+       if(start>=end) return;
+       int pivot = partition(array, start, end);
+       quickSortRec(array, start, pivot-1);
+       quickSortRec(array, pivot+1, end);
+   }
+
+   private static int partition(int[] array, int low, int high){
+       int randIdx = low + new Random().nextInt(high - low + 1);
+       int pivot = array[randIdx], i = low - 1, j = low, temp;
+       temp = array[randIdx];
+       array[randIdx] = array[high];
+       array[high] = temp;
+       while(j < high){
+           if(array[j]<pivot){
+               i++;
+               temp = array[i];
+               array[i] = array[j];
+               array[j] = temp;
+           }    j++;
+       }
+       ++i;
+       temp = array[i];
+       array[i] = array[high];
+       array[high] = temp;
+       return i;
    }
 }
