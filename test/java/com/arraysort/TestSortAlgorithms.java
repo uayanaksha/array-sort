@@ -19,6 +19,7 @@ class TestSortAlgorithms{
             SortAlgorithms::selectionSort,
             SortAlgorithms::insertionSort,
             SortAlgorithms::mergeSort,
+            SortAlgorithms::quickSort,
         };
         for (Algo algo: algos){
             testing(array, algo);
