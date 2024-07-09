@@ -113,4 +113,26 @@ class SortAlgorithms{
        array[high] = temp;
        return i;
    }
+
+   public static void countingSort(int[] array){
+       int min = Integer.MAX_VALUE;
+       int max = Integer.MIN_VALUE;
+       for(int e : array){
+           if(e < min) min = e;
+           if(e > max) max = e;
+       }
+       int ctrSize = max - min + 1;
+       int[] ctr = new int[ctrSize];
+       for(int e : array){
+           ctr[e - min]++;
+       }
+       int idx = 0;
+       for(int i = 0; i < ctrSize; i++){
+           while(ctr[i]>0){
+               array[idx] = i+min;
+               ctr[i]--;
+               idx++;
+           }
+       }
+   }
 }
